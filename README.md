@@ -112,41 +112,6 @@ The app will be available at `http://localhost:8501`.
 
 ---
 
-## Roadmap / Future Work
-
-### Real Data Integration
-- [ ] Replace `generate_synthetic_history()` with a real historical results dataset (e.g. a Kaggle international-football-results export) so Elo ratings and head-to-head stats reflect actual matches.
-- [ ] Wire in a live FIFA World Ranking feed (official API or a maintained CSV mirror) in place of the hand-set `TEAMS_DB` ranks.
-- [ ] Swap `SAMPLE_PLAYERS` for a real per-90 stats export (FBref, Opta, or StatsBomb open data) so clustering reflects actual season performance.
-- [ ] Implement FIFA's official cross-group Round-of-32 qualifier rules in `build_round_of_32()`, replacing the simplified illustrative seeding.
-
-### Modeling Improvements
-- [ ] Benchmark `RandomForestClassifier` against gradient-boosted alternatives (XGBoost, LightGBM, CatBoost).
-- [ ] Move from a single train/test split to k-fold cross-validation for a more reliable accuracy estimate.
-- [ ] Calibrate predicted probabilities (`CalibratedClassifierCV`) so the win/draw/loss percentages are better aligned with real-world frequencies.
-- [ ] Add feature importance / SHAP explanations to the Match Predictor tab for interpretability.
-- [ ] Track and display prediction accuracy against real completed matches, if/when a live data feed is added.
-
-### Sentiment Tracker Revival
-- [ ] Replace the disabled `transformers` + `tweepy` pipeline with a lightweight lexicon-based sentiment scorer (no heavy model download, no paid API tier required).
-- [ ] Build a simulated live match-event feed (goal / red card / VAR review triggers a sentiment spike) for a "fun and interactive" experience without needing real tweet access.
-- [ ] If reviving real social listening, evaluate current-generation X/Bluesky/Reddit APIs and their access tiers before re-adding `tweepy`/`transformers` to `requirements.txt`.
-
-### Deployment & Engineering
-- [ ] Containerize with Docker for reproducible deployment.
-- [ ] Deploy to Streamlit Community Cloud or Hugging Face Spaces for a public live demo link.
-- [ ] Add a GitHub Actions CI pipeline (lint with `ruff`/`flake8`, run unit tests on push).
-- [ ] Add `pytest` unit tests for `predictor.py` (Elo math, outcome labeling, bracket logic) and `clusterer.py` (cluster labeling heuristics).
-- [ ] Expose the predictor as a small FastAPI service so other apps/scripts can query predictions without going through the Streamlit UI.
-
-### UX & Gamification
-- [ ] Persist "Beat the AI" scores (SQLite or a hosted DB) to build a real leaderboard across sessions/users.
-- [ ] Add a shareable results card/image for tournament simulation outcomes.
-- [ ] Mobile-responsive layout pass and accessibility audit (contrast ratios, screen-reader labels on custom HTML components).
-- [ ] Internationalization (i18n) for team names and UI copy.
-
----
-
 ## Contributing
 
 Issues and pull requests are welcome. If you're picking up one of the Roadmap items above, please open an issue first so effort isn't duplicated.
