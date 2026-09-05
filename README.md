@@ -43,7 +43,7 @@ Every model in this project is built to be **honest about its own limits**: pred
 * **48-Team Group Draw & Full Tournament Simulator** — a proper 4-pot seeded draw across 12 groups of 4, a full round-robin group stage, top-2 + best-8-third-place qualification logic, and a Round-of-32 → Final knockout bracket rendered as an animated, Champions-League-style visual.
 * **Player Style Clustering** — K-Means clustering over six playing-style attributes (pace, shooting, passing, dribbling, defending, physical), with clusters auto-labeled ("Deep-Lying Playmaker," "Ball-Winning Defender," etc.) from their centroid rather than shown as raw numbers.
 * **Click-to-Inspect Radar Chart** — click any player point on the cluster scatter plot to open a live Plotly radar chart of that player's full attribute profile.
-* **🎮 Beat the AI** — a gamified mode where you pick your own bracket and see how many picks the model agrees with.
+* **Beat the AI** — a gamified mode where you pick your own bracket and see how many picks the model agrees with.
 * **Synthetic Data Engine** — match history is generated from a strength-weighted Poisson goal model (not random noise), so the ML model has real signal to learn from even without a live data feed.
 
 ---
@@ -98,7 +98,7 @@ See [Roadmap](#roadmap--future-work) below for how to swap each of these for rea
 
 ```bash
 # Clone and enter the project
-git clone https://github.com/<your-username>/worldcup-analytics-hub.git
+git clone https://github.com/mhdhamka/worldcup-analytics.git
 cd worldcup-analytics-hub
 
 # Install dependencies
@@ -114,32 +114,32 @@ The app will be available at `http://localhost:8501`.
 
 ## Roadmap / Future Work
 
-### 🔗 Real Data Integration
+### Real Data Integration
 - [ ] Replace `generate_synthetic_history()` with a real historical results dataset (e.g. a Kaggle international-football-results export) so Elo ratings and head-to-head stats reflect actual matches.
 - [ ] Wire in a live FIFA World Ranking feed (official API or a maintained CSV mirror) in place of the hand-set `TEAMS_DB` ranks.
 - [ ] Swap `SAMPLE_PLAYERS` for a real per-90 stats export (FBref, Opta, or StatsBomb open data) so clustering reflects actual season performance.
 - [ ] Implement FIFA's official cross-group Round-of-32 qualifier rules in `build_round_of_32()`, replacing the simplified illustrative seeding.
 
-### 🧠 Modeling Improvements
+### Modeling Improvements
 - [ ] Benchmark `RandomForestClassifier` against gradient-boosted alternatives (XGBoost, LightGBM, CatBoost).
 - [ ] Move from a single train/test split to k-fold cross-validation for a more reliable accuracy estimate.
 - [ ] Calibrate predicted probabilities (`CalibratedClassifierCV`) so the win/draw/loss percentages are better aligned with real-world frequencies.
 - [ ] Add feature importance / SHAP explanations to the Match Predictor tab for interpretability.
 - [ ] Track and display prediction accuracy against real completed matches, if/when a live data feed is added.
 
-### 📡 Sentiment Tracker Revival
+### Sentiment Tracker Revival
 - [ ] Replace the disabled `transformers` + `tweepy` pipeline with a lightweight lexicon-based sentiment scorer (no heavy model download, no paid API tier required).
 - [ ] Build a simulated live match-event feed (goal / red card / VAR review triggers a sentiment spike) for a "fun and interactive" experience without needing real tweet access.
 - [ ] If reviving real social listening, evaluate current-generation X/Bluesky/Reddit APIs and their access tiers before re-adding `tweepy`/`transformers` to `requirements.txt`.
 
-### 🚀 Deployment & Engineering
+### Deployment & Engineering
 - [ ] Containerize with Docker for reproducible deployment.
 - [ ] Deploy to Streamlit Community Cloud or Hugging Face Spaces for a public live demo link.
 - [ ] Add a GitHub Actions CI pipeline (lint with `ruff`/`flake8`, run unit tests on push).
 - [ ] Add `pytest` unit tests for `predictor.py` (Elo math, outcome labeling, bracket logic) and `clusterer.py` (cluster labeling heuristics).
 - [ ] Expose the predictor as a small FastAPI service so other apps/scripts can query predictions without going through the Streamlit UI.
 
-### 🎮 UX & Gamification
+### UX & Gamification
 - [ ] Persist "Beat the AI" scores (SQLite or a hosted DB) to build a real leaderboard across sessions/users.
 - [ ] Add a shareable results card/image for tournament simulation outcomes.
 - [ ] Mobile-responsive layout pass and accessibility audit (contrast ratios, screen-reader labels on custom HTML components).
@@ -168,6 +168,6 @@ Distributed under the MIT License.
 
 If you found this project interesting, consider giving it a star ⭐
 
-Crafted with ⚽ by **[Your Name]**
+Crafted by **[@mhdhamka](https://github.com/mhdhamka)**
 
 </div>
