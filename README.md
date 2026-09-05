@@ -99,7 +99,7 @@ See [Roadmap](#roadmap--future-work) below for how to swap each of these for rea
 ```bash
 # Clone and enter the project
 git clone https://github.com/mhdhamka/worldcup-analytics.git
-cd worldcup-analytics-hub
+cd worldcup-analytics
 
 # Install dependencies
 pip install -r requirements.txt
