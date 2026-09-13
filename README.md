@@ -18,21 +18,9 @@
 
 ## Overview
 
-**World Cup 2026 Analytics Hub** combines three data-science mini-projects — match outcome prediction, player-style clustering, and tournament simulation — into one Streamlit app with a pitch-green, gold-accented "official tournament" UI.
+**World Cup 2026 Analytics Hub** combines three data science mini projects, match outcome prediction, player style clustering, and tournament simulation, into one Streamlit app featuring a pitch green, gold accented "official tournament" UI.
 
-Every model in this project is built to be **honest about its own limits**: predictions come with a visible hold-out accuracy score, training data is clearly labeled as illustrative/synthetic rather than passed off as a live feed, and every bracket or scoreline shown is explicitly flagged as a model projection — not a real result.
-
----
-
-## Interactive Feature Preview
-
-<div align="center">
-
-![Match Predictor and Knockout Bracket](./src/assets/images/predictor-preview.png)
-
-*Match Outcome Predictor, 48-team Group Draw, and the model-simulated knockout bracket*
-
-</div>
+Every model in this project is built to be **honest about its own limits**: predictions come with a visible hold-out accuracy score, training data is clearly labeled as illustrative/synthetic rather than passed off as a live feed, and every bracket or scoreline shown is explicitly flagged as a model projection rather than a real result.
 
 ---
 
@@ -63,22 +51,33 @@ Every model in this project is built to be **honest about its own limits**: pred
 ## Project Structure
 
 ```text
-worldcup/
-├── app.py                          # Streamlit entry point — tabs, theming, bracket renderer
-├── requirements.txt
+worldcup-analytics/
+├── .gitignore
+├── app.py                      # Streamlit entry point — tabs, theming, bracket renderer
 ├── README.md
+├── requirements.txt
+├── .github/
+│   └── workflows/
+│       └── main.yml            # CI/CD pipeline configuration
 ├── data/
 │   ├── __init__.py
-│   └── teams_data.py               # 48-team illustrative dataset, flags, seeded group draw
+│   ├── data.txt
+│   └── teams_data.py           # 48 team illustrative dataset, flags, seeded group draw
+├── notebooks/
+│   └── exploratory_analysis.ipynb # Jupyter notebook for EDA and model feature tests
 └── src/
+    ├── __init__.py
     ├── match_engine/
-    │   └── predictor.py            # WorldCupMatchPredictor: synthetic data, Elo, RF model, bracket sim
+    │   ├── __init__.py
+    │   └── predictor.py        # WorldCupMatchPredictor: synthetic data, Elo, RF model, bracket sim
     ├── player_clustering/
-    │   └── clusterer.py            # PlayerStyleClusterer: KMeans, auto-labeling, scatter + radar charts
+    │   ├── __init__.py
+    │   └── clusterer.py        # PlayerStyleClusterer: KMeans, auto-labeling, scatter + radar charts
     └── sentiment_tracker/
-        └── tracker.py              # Disabled — kept for future use, see Roadmap below
-```
+        ├── __init__.py
+        └── tracker.py          # Disabled — kept for future use, see Roadmap below
 
+```
 ---
 
 ## Model & Data Transparency Notes
@@ -90,7 +89,7 @@ This project intentionally does **not** pretend to use real, live football data:
 - `clusterer.py::SAMPLE_PLAYERS` — 20 illustrative player profiles with approximate 0–100 style ratings, not sourced from an official stats provider.
 - Every prediction, bracket, and scoreline in the UI is labeled a **model projection**, and the sidebar always shows the model's real hold-out accuracy.
 
-See [Roadmap](#roadmap--future-work) below for how to swap each of these for real data sources.
+See [Roadmap](https://github.com/mhdhamka/worldcup-analytics/issues/1) below for how to swap each of these for real data sources.
 
 ---
 
@@ -123,13 +122,11 @@ Issues and pull requests are welcome. If you're picking up one of the Roadmap it
 
 ---
 
+<div align="center">
+
 ## License
 
 Distributed under the MIT License.
-
----
-
-<div align="center">
 
 If you found this project interesting, consider giving it a star ⭐
 
