@@ -1,10 +1,10 @@
 <div align="center">
 
-# ⚽ FIFA World Cup 2026 Analytics Hub
+# FIFA World Cup 2026 Analytics 
 
 **An interactive data-science platform for World Cup match prediction, 48-team tournament simulation, and player style clustering — built on transparent, honestly-labeled models instead of black-box guesses.**
 
-[Live Demo](https://worldcup-analytics.streamlit.app/) · [Report Bug](https://github.com/mhdhamka/worldcup-analytics/issues) · [Request Feature](https://github.com/mhdhamka/worldcup-analytics/issues)
+[Documentation](./notebooks) · [Live Demo](https://worldcup-analytics.streamlit.app/) · [Report Bug](https://github.com/mhdhamka/worldcup-analytics/issues) · [Request Feature](https://github.com/mhdhamka/worldcup-analytics/issues)
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776ab?logo=python&logoColor=white)
